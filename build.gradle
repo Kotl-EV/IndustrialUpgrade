@@ -1,0 +1,103 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        maven {
+            name = "forge"
+            url = "https://files.minecraftforge.net/maven"
+        }
+        maven {
+            name = "sonatype"
+            url = "https://oss.sonatype.org/content/repositories/snapshots/"
+        }
+		maven {
+            name = "juanmuscaria"
+			url = "https://github.com/juanmuscaria/maven/raw/master"
+        }
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:1.2-1.5.3-SNAPSHOT'
+    }
+}
+
+apply plugin: 'forge'
+
+version = "2.5.21"
+group= "com.denfop"
+archivesBaseName = "IndustrialUpgrade_server"
+apply plugin: 'java'
+compileJava {
+    sourceCompatibility = '1.8'
+    targetCompatibility = '1.8'
+}
+//tasks.withType(JavaCompile) {
+//    options.compilerArgs += ['-Xlint:deprecation', '-Xlint:unchecked']
+//}
+minecraft {
+    version = "1.7.10-10.13.4.1614-1.7.10"
+    runDir = "eclipse"
+}
+
+dependencies {
+    implementation 'org.jetbrains:annotations:23.0.0'
+    compile fileTree('libs')
+}
+processResources
+{
+    inputs.property "version", project.version
+    inputs.property "mcversion", project.minecraft.version
+    from(sourceSets.main.resources.srcDirs) {
+        include 'mcmod.info'
+        expand 'version':project.version, 'mcversion':project.minecraft.version
+    }
+    from(sourceSets.main.resources.srcDirs) {
+        exclude 'mcmod.info'
+    }
+	
+}
+
+task deobfJar(type: Jar) {
+    from sourceSets.main.output
+    classifier = 'deobf'
+}
+
+task sourcesJar(type: Jar) {
+    from sourceSets.main.allJava
+    classifier = 'sources'
+}
+
+artifacts {
+    archives deobfJar
+    archives sourcesJar
+}
+jar {
+    manifest {
+        attributes([
+                "Specification-Title": project.name,
+                "Specification-Vendor": "ijo42",
+                "Specification-Version": "1",
+                "Implementation-Title": project.name,
+                "Implementation-Version": project.version,
+                "Implementation-Vendor" :"Denfop",
+                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
+                "Git-Commit-Hash": getGitHash()
+        ])
+    }
+    from 'LICENSE'
+	
+}
+
+jar {
+    manifest {
+        attributes 'FMLAT': 'IndustrialUpgrade_at.cfg'
+    }
+}
+
+static def getGitHash() {
+    try {
+        def process = 'git rev-parse --short HEAD'.execute()
+        process.waitFor()
+        return (process.exitValue() ? 'unknown' : process.text.trim())
+    }catch(IOException ignored){
+        return 'unknown'
+    }
+}

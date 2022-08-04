@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Implementation-Title: industrialupgrade_server
+Implementation-Version: 2.5.21
+Specification-Vendor: ijo42
+Specification-Title: industrialupgrade_server
+FMLAT: IndustrialUpgrade_at.cfg
+Implementation-Timestamp: 2022-08-04T21:51:02+0300
+Git-Commit-Hash: 20a942b1
+Specification-Version: 1
+Implementation-Vendor: Denfop
+
