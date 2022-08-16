@@ -5,26 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="08dcc015-e2bf-4065-9b22-2031f4a9cf35" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/denfop/item/energy/AdvancedMultiTool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/denfop/item/energy/AdvancedMultiTool.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/denfop/item/energy/EnergyAxe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/denfop/item/energy/EnergyAxe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/denfop/item/energy/EnergyBow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/denfop/item/energy/EnergyBow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/denfop/item/energy/EnergyDrill.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/denfop/item/energy/EnergyDrill.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/denfop/item/energy/EnergyPickaxe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/denfop/item/energy/EnergyPickaxe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/denfop/item/energy/EnergyShovel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/denfop/item/energy/EnergyShovel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/denfop/item/energy/ItemBattery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/denfop/item/energy/ItemBattery.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/denfop/item/energy/ItemGraviTool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/denfop/item/energy/ItemGraviTool.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/denfop/item/energy/ItemMagnet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/denfop/item/energy/ItemMagnet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/denfop/item/energy/ItemQuantumSaber.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/denfop/item/energy/ItemQuantumSaber.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/denfop/item/energy/ItemSpectralSaber.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/denfop/item/energy/ItemSpectralSaber.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/denfop/recipes/FurnaceRecipes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/denfop/recipes/FurnaceRecipes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/denfop/recipes/MaceratorRecipe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/denfop/recipes/MaceratorRecipe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/denfop/tiles/reactors/TileEntityPerNuclearReactor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/denfop/tiles/reactors/TileEntityPerNuclearReactor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IndustrialUpgrade_server-2.5.21.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/jar/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/jar/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/industrialupgrade-1.7.10-dev.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/industrialupgrade-1.7.10-dev.ipr" beforeDir="false" afterPath="$PROJECT_DIR$/industrialupgrade-1.7.10-dev.ipr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/industrialupgrade-1.7.10-dev.iws" beforeDir="false" afterPath="$PROJECT_DIR$/industrialupgrade-1.7.10-dev.iws" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/denfop/invslot/InvSlotProcessableMultiGeneric.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/denfop/invslot/InvSlotProcessableMultiGeneric.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/denfop/tiles/base/TileEntityMultiMachine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/denfop/tiles/base/TileEntityMultiMachine.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -66,6 +61,42 @@
     <breakpoint_rules converted="true" />
     <ui_properties converted="true" />
   </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="industrialupgrade_server" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="industrialupgrade_server" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="industrialupgrade_server" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -91,6 +122,9 @@
     <option name="LAST_EDITED_MODULE_NAME" />
     <option name="LAST_EDITED_TAB_NAME" />
   </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
+  </component>
   <component name="ProjectId" id="2BOj8CIa1jM594JfiRTzfF1WJ07" />
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -104,17 +138,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="GoToClass.includeLibraries" value="false" />
-    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
-    <property name="GoToFile.includeJavaFiles" value="false" />
-    <property name="MemberChooser.copyJavadoc" value="false" />
-    <property name="MemberChooser.showClasses" value="true" />
-    <property name="MemberChooser.sorted" value="false" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-  </component>
-  <component name="RunManager" selected="Application.Minecraft Client">
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true"
+  }
+}]]></component>
+  <component name="RunManager" selected="Gradle.industrialupgrade_server [build]">
     <configuration default="true" factoryName="Applet" type="Applet">
       <module name="" />
       <option name="MAIN_CLASS_NAME" />
@@ -164,6 +194,27 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="industrialupgrade_server [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" />
@@ -173,6 +224,19 @@
       </option>
       <method v="2">
         <option name="BuildArtifacts" enabled="false" />
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="industrialupgrade-1.7.10-dev" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="industrialupgrade-1.7.10-dev" />
+      <option name="filePath" />
+      <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
@@ -187,6 +251,11 @@
         <option name="BuildArtifacts" enabled="false" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.industrialupgrade_server [build]" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration" maxAnnotateRevisions="500">
@@ -212,6 +281,17 @@
       <updated>1656783868751</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />

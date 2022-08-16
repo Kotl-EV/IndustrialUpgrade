@@ -25,17 +25,22 @@ import ic2.api.recipe.RecipeOutput;
 import ic2.core.ContainerBase;
 import ic2.core.IC2;
 import ic2.core.IHasGui;
+import ic2.core.block.invslot.InvSlot;
 import ic2.core.block.invslot.InvSlotOutput;
 import ic2.core.block.invslot.InvSlotUpgrade;
 import ic2.core.block.machine.tileentity.TileEntityElectricMachine;
 import ic2.core.upgrade.IUpgradableBlock;
 import ic2.core.upgrade.IUpgradeItem;
+import ic2.core.util.ItemStackWrapper;
+import ic2.core.util.StackUtil;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.common.util.ForgeDirection;
+import org.apache.commons.lang3.tuple.MutablePair;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 
@@ -278,12 +283,21 @@ public abstract class TileEntityMultiMachine extends TileEntityElectricMachine i
         boolean isActive = false;
         int quickly = 1;
 
+        //TODO LuxinfineTeam code START
+        boolean hasItems = false, crafting = false;
+        //TODO LuxinfineTeam code END
         for (int i = 0; i < sizeWorkingSlot; i++) {
             RecipeOutput output = getOutput(i);
+            //TODO LuxinfineTeam code START
+            crafting |= output != null;
+            //TODO LuxinfineTeam code END
             if (this.quickly)
                 quickly = 100;
             int size = 1;
-            if (this.inputSlots.get1(i) != null)
+            if (this.inputSlots.get1(i) != null) {
+                //TODO LuxinfineTeam code START
+                hasItems = true;
+                //TODO LuxinfineTeam code END
                 if (this.modulesize) {
                     for (int j = 0; ; j++) {
                         ItemStack stack = new ItemStack(this.inputSlots.get1(i).getItem(), j, this.inputSlots.get1(i).getItemDamage());
@@ -311,6 +325,14 @@ public abstract class TileEntityMultiMachine extends TileEntityElectricMachine i
                         size1 = size1 / output.items.get(0).stackSize;
                     size = Math.min(size1, size);
                 }
+            } else {
+                //TODO LuxinfineTeam code START
+                if (this.progress[i] != 0 && getActive())
+                    initiate(1);
+                this.progress[i] = 0;
+                this.guiProgress[i] = 0;
+                //TODO LuxinfineTeam code END
+            }
             if (output != null && (this.energy >= Math.abs(this.energyConsume * quickly * size) || this.energy2 >= Math.abs(this.energyConsume * Config.coefficientrf * quickly * size))) {
                 isActive = true;
                 if (this.progress[i] == 0)
@@ -348,6 +370,34 @@ public abstract class TileEntityMultiMachine extends TileEntityElectricMachine i
             }
         }
 
+        //TODO LuxinfineTeam code START
+        if (hasItems && !crafting) {
+            //Сгруппируем вещи
+            start: for (int i = 0; i < sizeWorkingSlot; i++) {
+                ItemStack is = inputSlots.get1(i);
+                if (is != null) {
+                    for (int k = 0; k < sizeWorkingSlot; k++) {
+                        ItemStack s = inputSlots.get1(k);
+                        if (i != k && StackUtil.isStackEqualStrict(is, s)) {
+                            int canMerge = is.getMaxStackSize() - is.stackSize;
+                            if (canMerge <= 0) continue start;
+                            if (s.stackSize <= canMerge) {
+                                ((InvSlot)inputSlots).put(k, null); //Автор этого мода не добавил put. Что ж, будем кастить к InvSlot
+                                is.stackSize += s.stackSize;
+                                isActive = getActive();
+                            } else {
+                                s.stackSize -= canMerge;
+                                is.stackSize += canMerge;
+                                isActive = getActive();
+                                break start;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        //TODO LuxinfineTeam code END
+
         if (getActive() != isActive) {
             setActive(isActive);
         }
@@ -359,10 +409,69 @@ public abstract class TileEntityMultiMachine extends TileEntityElectricMachine i
                     needsInvUpdate = true;
         }
 
+        /*TODO LuxinfineTeam code REPLACE
         if (needsInvUpdate)
-            super.markDirty();
+            super.markDirty();*/
+        if (needsInvUpdate)
+            worldObj.markTileEntityChunkModified(xCoord, yCoord, zCoord, this);
+        //TODO LuxinfineTeam code END
 
     }
+
+    //TODO LuxinfineTeam code START
+    @Override
+    public int getInventoryStackLimit() {
+        //Делаем упор на то, что трубами ВСУНУТЬ можно только во входные слоты
+        int start = 0, size = 0;
+        for (InvSlot slot : invSlots) {
+            if (slot != inputSlots) {
+                start += slot.size();
+            } else {
+                size = slot.size();
+                break;
+            }
+        }
+        /*--------------------------------<min, max>-----------------------------*/
+        HashMap<ItemStackWrapper, MutablePair<Integer, Integer>> counts = new HashMap<>();
+        for (int i = start; i < start + size; i++) {
+            ItemStack s = getStackInSlot(i);
+            if (s != null) {
+                MutablePair<Integer, Integer> pair = counts.computeIfAbsent(new ItemStackWrapper(s), k -> new MutablePair<>(Integer.MAX_VALUE, Integer.MIN_VALUE));
+                if (pair.left > s.stackSize)
+                    pair.left = s.stackSize;
+                if (pair.right < s.stackSize)
+                    pair.right = s.stackSize;
+            }
+        }
+        int limit = counts.values().stream().mapToInt(pair -> pair.right - pair.left).min().orElse(64);
+        return limit <= 0 ? 64 : counts.values().stream().mapToInt(MutablePair::getLeft).min().orElse(0) + limit;
+    }
+
+    @Override
+    public boolean canInsertItem(int index, ItemStack itemStack, int side) {
+        int start = 0;
+        for (InvSlot slot : invSlots) {
+            if (slot != inputSlots) {
+                start += slot.size();
+            } else {
+                break;
+            }
+        }
+        int id = Integer.MIN_VALUE, min = Integer.MAX_VALUE;
+        for (int i = start; i < start + sizeWorkingSlot; i++) {
+            if (!super.canInsertItem(i, itemStack, side)) continue;
+            ItemStack stack = getStackInSlot(i);
+            if (stack == null) {
+                id = i;
+                break;
+            } else if (stack.stackSize <= min && StackUtil.isStackEqualStrict(stack, itemStack)) {
+                min = stack.stackSize;
+                id = i;
+            }
+        }
+        return index == id;
+    }
+    //TODO LuxinfineTeam code END
 
     protected void initiate(int soundEvent) {
         IC2.network.get().initiateTileEntityEvent(this, soundEvent, true);
@@ -413,17 +522,52 @@ public abstract class TileEntityMultiMachine extends TileEntityElectricMachine i
                 } else {
                     this.inputSlots.consume(slotId);
                 }
-                this.outputSlots.add(processResult);
+                //TODO LuxinfineTeam code REPLACE
+                //this.outputSlots.add(processResult);
             } else {
                 Random rand = worldObj.rand;
                 if (rand.nextInt(max + 1) <= min) {
                     if (output.metadata == null || output.metadata.getBoolean("consume"))
                         this.inputSlots.consume(slotId);
-                    this.outputSlots.add(processResult);
+                    //TODO LuxinfineTeam code REPLACE
+                    //this.outputSlots.add(processResult);
                 }
             }
         }
     }
+
+    //TODO LuxinfineTeam code START
+    //Вставка предметов в слоты выхода с приоритетом на указанный слот
+    private void insertOutput(int outputSlot, List<ItemStack> output) {
+        for (ItemStack out : output) {
+            int count = doInsert_0(outputSlot, out, out.stackSize);
+            for (int slot = 0; count > 0 && slot < this.outputSlots.size(); slot++) {
+                if (slot != outputSlot)
+                    count = doInsert_0(slot, out, count);
+            }
+        }
+    }
+
+    private int doInsert_0(int slot, ItemStack out, int count) {
+        ItemStack current = this.outputSlots.get(slot);
+        int space = Math.min(this.outputSlots.getStackSizeLimit(), out.getMaxStackSize());
+        if (current != null)
+            space -= current.stackSize;
+        if (space > 0) {
+            if (current == null) {
+                int s = Math.min(space, count);
+                count -= s;
+                this.outputSlots.put(slot, StackUtil.copyWithSize(out, s));
+            } else if (StackUtil.isStackEqualStrict(out, current)) {
+                int s = Math.min(space, count);
+                count -= s;
+                current.stackSize += s;
+                this.outputSlots.onChanged();
+            }
+        }
+        return count;
+    }
+    //TODO LuxinfineTeam code END
 
     /**
      * ��������� ����� ���� � ������ �������� ���� ������ �������

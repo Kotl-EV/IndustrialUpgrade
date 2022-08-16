@@ -24,9 +24,13 @@ public class InvSlotProcessableMultiGeneric extends InvSlot implements IInvSlotP
     }
 
     public boolean accepts(ItemStack itemStack) {
+        /*TODO LuxinfineTeam code REPLACE
         if (this.recipeManager.equals(Recipes.createscrap))
             return itemStack.isItemEqual(Ic2Items.scrap) || itemStack.isItemEqual(Ic2Items.scrapBox);
-        return itemStack == null || !(itemStack.getItem() instanceof ItemUpgradeModule);
+        return itemStack == null || !(itemStack.getItem() instanceof ItemUpgradeModule);*/
+        ItemStack in = itemStack.copy();
+        in.stackSize = Integer.MAX_VALUE;
+        return recipeManager.getOutputFor(in, false) != null;
     }
 
     public ItemStack get1(int i) {
