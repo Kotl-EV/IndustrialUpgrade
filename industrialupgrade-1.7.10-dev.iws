@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="08dcc015-e2bf-4065-9b22-2031f4a9cf35" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/IndustrialUpgrade_server-2.5.21.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/jar/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/jar/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/industrialupgrade-1.7.10-dev.iml" beforeDir="false" />
+    <list default="true" id="08dcc015-e2bf-4065-9b22-2031f4a9cf35" name="Changes" comment="Валидация входных слотов, сплит-система, прочие правки">
+      <change beforePath="$PROJECT_DIR$/IndustrialUpgrade_server-2.5.21.jar" beforeDir="false" afterPath="$PROJECT_DIR$/IndustrialUpgrade_server-2.5.21.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/industrialupgrade-1.7.10-dev.ipr" beforeDir="false" afterPath="$PROJECT_DIR$/industrialupgrade-1.7.10-dev.ipr" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/industrialupgrade-1.7.10-dev.iws" beforeDir="false" afterPath="$PROJECT_DIR$/industrialupgrade-1.7.10-dev.iws" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/denfop/invslot/InvSlotProcessableMultiGeneric.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/denfop/invslot/InvSlotProcessableMultiGeneric.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/denfop/tiles/base/TileEntityMultiMachine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/denfop/tiles/base/TileEntityMultiMachine.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -141,7 +139,8 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true"
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/Admin/IDEA Projects/industrialupgrade_server"
   }
 }]]></component>
   <component name="RunManager" selected="Gradle.industrialupgrade_server [build]">
@@ -167,20 +166,55 @@
     </configuration>
     <configuration name="Minecraft Client" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="GradleStart" />
-      <module name="industrialupgrade-1.7.10-dev" />
+      <module name="industrialupgrade_server.main" />
       <option name="VM_PARAMETERS" value="-Xincgc -Xmx1024M -Xms1024M" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$/../industrialupgrade-1.7.10-dev\eclipse" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/run" />
       <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper RunnerId="Run" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="false" factoryName="Application" name="Minecraft Client" type="Application">
+      <extension enabled="false" name="coverage" runner="idea" sample_coverage="true" />
+      <option name="MAIN_CLASS_NAME" value="GradleStart" />
+      <option name="VM_PARAMETERS" value="-Xincgc -Xmx1024M -Xms1024M" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$/../industrialupgrade_server\eclipse" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" value="" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="industrialupgrade_server" />
+      <envs />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" factoryName="Application" name="Minecraft Client" type="Application">
+      <extension enabled="false" name="coverage" runner="idea" sample_coverage="true" />
+      <option name="MAIN_CLASS_NAME" value="GradleStart" />
+      <option name="VM_PARAMETERS" value="-Xincgc -Xmx1024M -Xms1024M" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$/../industrialupgrade_server\run" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" value="" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="industrialupgrade_server" />
+      <envs />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
     <configuration name="Minecraft Server" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="GradleStartServer" />
-      <module name="industrialupgrade-1.7.10-dev" />
+      <module name="industrialupgrade_server" />
       <option name="VM_PARAMETERS" value="-Xincgc -Dfml.ignoreInvalidMinecraftCertificates=true" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$/../industrialupgrade-1.7.10-dev\eclipse" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$/../industrialupgrade_server\run" />
+      <extension enabled="false" name="coverage" runner="idea" sample_coverage="true" />
       <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper RunnerId="Run" />
       <method v="2">
@@ -251,6 +285,11 @@
         <option name="BuildArtifacts" enabled="false" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.Minecraft Server" />
+      <item itemvalue="Application.Minecraft Client" />
+      <item itemvalue="Gradle.industrialupgrade_server [build]" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.industrialupgrade_server [build]" />
@@ -280,6 +319,14 @@
       <option name="presentableId" value="Default" />
       <updated>1656783868751</updated>
     </task>
+    <task id="LOCAL-00001" summary="Валидация входных слотов, сплит-система, прочие правки">
+      <created>1660694299486</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1660694299486</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -295,6 +342,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
+    <MESSAGE value="Валидация входных слотов, сплит-система, прочие правки" />
+    <option name="LAST_COMMIT_MESSAGE" value="Валидация входных слотов, сплит-система, прочие правки" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
 </project>

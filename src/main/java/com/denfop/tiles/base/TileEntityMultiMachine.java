@@ -524,6 +524,7 @@ public abstract class TileEntityMultiMachine extends TileEntityElectricMachine i
                 }
                 //TODO LuxinfineTeam code REPLACE
                 //this.outputSlots.add(processResult);
+                insertOutput(slotId, processResult);
             } else {
                 Random rand = worldObj.rand;
                 if (rand.nextInt(max + 1) <= min) {
@@ -531,6 +532,7 @@ public abstract class TileEntityMultiMachine extends TileEntityElectricMachine i
                         this.inputSlots.consume(slotId);
                     //TODO LuxinfineTeam code REPLACE
                     //this.outputSlots.add(processResult);
+                    insertOutput(slotId, processResult);
                 }
             }
         }
