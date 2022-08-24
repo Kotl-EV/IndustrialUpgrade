@@ -39,13 +39,16 @@ public class TileEntityCable extends TileEntityBlock
 
     public byte foamColor;
 
-    @ClientModifiable
+    //TODO LuxinfineTeam code REMOVE
+    //@ClientModifiable
     public Block[] retextureRef;
 
-    @ClientModifiable
+    //TODO LuxinfineTeam code REMOVE
+    //@ClientModifiable
     public int[] retextureRefMeta;
 
-    @ClientModifiable
+    //TODO LuxinfineTeam code REMOVE
+    //@ClientModifiable
     public int[] retextureRefSide;
 
     public byte connectivity;

@@ -4,12 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="08dcc015-e2bf-4065-9b22-2031f4a9cf35" name="Changes" comment="Валидация входных слотов, сплит-система, прочие правки">
+    <list default="true" id="08dcc015-e2bf-4065-9b22-2031f4a9cf35" name="Changes" comment="Дофикс приоритетной вставки вещей в слоты выхода">
       <change beforePath="$PROJECT_DIR$/IndustrialUpgrade_server-2.5.21.jar" beforeDir="false" afterPath="$PROJECT_DIR$/IndustrialUpgrade_server-2.5.21.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/industrialupgrade-1.7.10-dev.ipr" beforeDir="false" afterPath="$PROJECT_DIR$/industrialupgrade-1.7.10-dev.ipr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/denfop/tiles/base/TileEntityCable.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/denfop/tiles/base/TileEntityCable.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/denfop/tiles/base/TileEntityMultiMachine.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/denfop/tiles/base/TileEntityMultiMachine.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/libs/IndustrialUpgrade_server-2.5.21-deobf.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/IndustrialUpgrade_server-2.5.21-deobf.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/libs/IndustrialUpgrade_server-2.5.21-sources.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/IndustrialUpgrade_server-2.5.21-sources.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/libs/IndustrialUpgrade_server-2.5.21.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/IndustrialUpgrade_server-2.5.21.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/sources/java/com/denfop/tiles/base/TileEntityMultiMachine.java" beforeDir="false" afterPath="$PROJECT_DIR$/build/sources/java/com/denfop/tiles/base/TileEntityMultiMachine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/jar/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/jar/MANIFEST.MF" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/industrialupgrade-1.7.10-dev.iws" beforeDir="false" afterPath="$PROJECT_DIR$/industrialupgrade-1.7.10-dev.iws" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/denfop/tiles/base/TileEntityMultiMachine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/denfop/tiles/base/TileEntityMultiMachine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/denfop/tiles/base/TileEntityCable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/denfop/tiles/base/TileEntityCable.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,7 +145,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/Admin/IDEA Projects/industrialupgrade_server"
+    "last_opened_file_path": "C:/Users/Admin/IDEA Projects/AE2Stuff Java Edition"
   }
 }]]></component>
   <component name="RunManager" selected="Gradle.industrialupgrade_server [build]">
@@ -326,7 +331,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660694299486</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Дофикс приоритетной вставки вещей в слоты выхода">
+      <created>1660772910873</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1660772910873</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -343,7 +355,9 @@
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
     <MESSAGE value="Валидация входных слотов, сплит-система, прочие правки" />
-    <option name="LAST_COMMIT_MESSAGE" value="Валидация входных слотов, сплит-система, прочие правки" />
+    <MESSAGE value="Дофикс приоритетной вставки вещей в слоты вывода" />
+    <MESSAGE value="Дофикс приоритетной вставки вещей в слоты выхода" />
+    <option name="LAST_COMMIT_MESSAGE" value="Дофикс приоритетной вставки вещей в слоты выхода" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
 </project>
