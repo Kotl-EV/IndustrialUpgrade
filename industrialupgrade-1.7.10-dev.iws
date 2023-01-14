@@ -5,10 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="08dcc015-e2bf-4065-9b22-2031f4a9cf35" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/IndustrialUpgrade_server-2.5.21.jar" beforeDir="false" afterPath="$PROJECT_DIR$/IndustrialUpgrade_server-2.5.21.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IndustrialUpgrade.api.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IndustrialUpgrade.main.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IndustrialUpgrade.test.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/libs/IndustrialUpgrade_server-2.5.21.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/IndustrialUpgrade_server-2.5.21.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/sources/java/com/denfop/tiles/base/TileEntityCable.java" beforeDir="false" afterPath="$PROJECT_DIR$/build/sources/java/com/denfop/tiles/base/TileEntityCable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/industrialupgrade-1.7.10-dev.ipr" beforeDir="false" afterPath="$PROJECT_DIR$/industrialupgrade-1.7.10-dev.ipr" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/industrialupgrade-1.7.10-dev.iws" beforeDir="false" afterPath="$PROJECT_DIR$/industrialupgrade-1.7.10-dev.iws" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/denfop/tiles/base/TileEntityCable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/denfop/tiles/base/TileEntityCable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/EventHelper-1.7.10-1.10-dev.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/denfop/recipes/BasicRecipe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/denfop/recipes/BasicRecipe.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,6 +144,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "last_opened_file_path": "C:/Users/Admin/IDEA Projects/IC2"
   }
 }]]></component>
@@ -213,7 +219,6 @@
       <module name="industrialupgrade_server" />
       <option name="VM_PARAMETERS" value="-Xincgc -Dfml.ignoreInvalidMinecraftCertificates=true" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$/../industrialupgrade_server\run" />
-      <extension enabled="false" name="coverage" runner="idea" sample_coverage="true" />
       <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper RunnerId="Run" />
       <method v="2">

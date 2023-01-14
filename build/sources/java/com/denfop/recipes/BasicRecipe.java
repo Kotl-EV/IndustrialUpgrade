@@ -979,9 +979,9 @@ public class BasicRecipe {
                 "TCT", "CDC", "BFB", 'T', Ic2Items.iridiumPlate, 'F', new ItemStack(IUItem.advBatChargeCrystal, 1, OreDictionary.WILDCARD_VALUE), 'B', new ItemStack(IUItem.advQuantumtool, 1), 'D', new ItemStack(IUItem.quantumdrill, 1, OreDictionary.WILDCARD_VALUE), 'C', new ItemStack(IUItem.circuitSpectral, 1));
         Recipes.advRecipes.addRecipe(new ItemStack(IUItem.bags), "BCB", "BAB", "B B", 'C', new ItemStack(Ic2Items.suBattery.getItem(), 1, OreDictionary.WILDCARD_VALUE), 'B', new ItemStack(Items.leather), 'A', Ic2Items.electronicCircuit);
         Recipes.advRecipes.addRecipe(new ItemStack(IUItem.adv_bags, 1), "BCB", "BAB", "B B", 'C',
-                new ItemStack(Ic2Items.reBattery.getItem(), 1, OreDictionary.WILDCARD_VALUE), 'B', Ic2Items.carbonPlate, 'A', new ItemStack(IUItem.bags));
+                new ItemStack(Ic2Items.reBattery.getItem(), 1, OreDictionary.WILDCARD_VALUE), 'B', Ic2Items.carbonPlate, 'A', new ItemStack(IUItem.bags, 1, OreDictionary.WILDCARD_VALUE));
         Recipes.advRecipes.addRecipe(new ItemStack(IUItem.imp_bags, 1), "BCB", "BAB", "B B", 'C',
-                new ItemStack(Ic2Items.advBattery.getItem(), 1, OreDictionary.WILDCARD_VALUE), 'B', new ItemStack(IUItem.compresscarbon), 'A', new ItemStack(IUItem.adv_bags));
+                new ItemStack(Ic2Items.advBattery.getItem(), 1, OreDictionary.WILDCARD_VALUE), 'B', new ItemStack(IUItem.compresscarbon), 'A', new ItemStack(IUItem.adv_bags, 1, OreDictionary.WILDCARD_VALUE));
 
         Recipes.advRecipes.addRecipe(new ItemStack(IUItem.advjetpack),
                 "BCB", "CDC", "BFB", 'F', new ItemStack(Ic2Items.suBattery.getItem(), 1, OreDictionary.WILDCARD_VALUE), 'B', OreDictionary.getOres("doubleplateFerromanganese"), 'D', new ItemStack(Ic2Items.electricJetpack.getItem(), 1, OreDictionary.WILDCARD_VALUE), 'C', new ItemStack(IUItem.QuantumItems9, 1));

@@ -6,7 +6,6 @@ import com.denfop.IUCore;
 import com.denfop.audio.PositionSpec;
 import com.denfop.proxy.CommonProxy;
 import com.denfop.utils.*;
-import com.gamerforea.eventhelper.util.EventUtils;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Sets;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -271,8 +270,6 @@ public class EnergyAxe extends ItemTool implements IElectricItem {
                                 if (save)
                                     if (world.getTileEntity(xPos, yPos, zPos) != null)
                                         continue;
-                                    if (EventUtils.cantBreak(player,xPos, yPos, zPos))
-                                        continue;
                                 int localMeta = world.getBlockMetadata(xPos, yPos, zPos);
                                 if (localBlock.getBlockHardness(world, xPos, yPos, zPos) > 0.0F)
                                     onBlockDestroyed(stack, world, localBlock, xPos, yPos, zPos,
@@ -307,8 +304,6 @@ public class EnergyAxe extends ItemTool implements IElectricItem {
                         && (materials.contains(localBlock.getMaterial())
                         || block == Blocks.monster_egg)) {
                     int localMeta = world.getBlockMetadata(x, y, z);
-                    if (EventUtils.cantBreak(player,x, y, z))
-                        return false;
                     if (localBlock.getBlockHardness(world, x, y, z) > 0.0F)
                         onBlockDestroyed(stack, world, localBlock, x, y, z,
                                 player);
@@ -323,8 +318,6 @@ public class EnergyAxe extends ItemTool implements IElectricItem {
         if (lowPower) {
             if (ElectricItem.manager.canUse(stack, costenergy)) {
                 Block localBlock = world.getBlock(x, y, z);
-                if (EventUtils.cantBreak(player,x, y, z))
-                    return false;
                 if (localBlock.getBlockHardness(world, x, y, z) > 0.0F)
                     return onBlockDestroyed(stack, world, localBlock, x, y, z,
                             player);
@@ -400,8 +393,6 @@ public class EnergyAxe extends ItemTool implements IElectricItem {
                     Block block = world.getBlock(xPos, yPos, zPos);
 
                     if (block.isWood(world, xPos, yPos, zPos)) {
-                        if (EventUtils.cantBreak(player,xPos, yPos, zPos))
-                            continue;
                         if (!player.capabilities.isCreativeMode) {
                             onBlockDestroyed(stack, world, block, xPos, yPos, zPos, player);
                         }
@@ -586,7 +577,9 @@ public class EnergyAxe extends ItemTool implements IElectricItem {
         if (IUCore.keyboard.isSaveModeKeyDown(player)) {
             NBTTagCompound nbt = ModUtils.nbt(itemStack);
             boolean save = !nbt.getBoolean("save");
-                    player.addChatComponentMessage(new ChatComponentTranslation("message.savemode").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.GREEN)).appendSibling(new ChatComponentTranslation(save ? "message.allow" : "message.disallow")));
+            CommonProxy.sendPlayerMessage(player,
+                    EnumChatFormatting.GREEN + Helpers.formatMessage("message.savemode") +
+                            (save ? Helpers.formatMessage("message.allow") : Helpers.formatMessage("message.disallow")));
             nbt.setBoolean("save", save);
         }
         if (IUCore.keyboard.isChangeKeyDown(player)) {
@@ -600,7 +593,9 @@ public class EnergyAxe extends ItemTool implements IElectricItem {
             saveToolMode(itemStack, toolMode);
             switch (toolMode) {
                 case 0:
-                            player.addChatComponentMessage(new ChatComponentTranslation("message.text.mode").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.GREEN)).appendSibling(new ChatComponentText(": ").appendSibling(new ChatComponentTranslation("message.ultDDrill.mode.normal"))));
+                    CommonProxy.sendPlayerMessage(player,
+                            EnumChatFormatting.GREEN + Helpers.formatMessage("message.text.mode") + ": "
+                                    + Helpers.formatMessage("message.ultDDrill.mode.normal"));
                     this.efficiencyOnProperMaterial = this.normalPower;
 
 
@@ -608,12 +603,16 @@ public class EnergyAxe extends ItemTool implements IElectricItem {
 
                 case 1:
 
-                            player.addChatComponentMessage(new ChatComponentTranslation("message.text.mode").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.DARK_PURPLE)).appendSibling(new ChatComponentText(": ").appendSibling(new ChatComponentTranslation("message.ultDDrill.mode.bigHoles"))));
+                    CommonProxy.sendPlayerMessage(player,
+                            EnumChatFormatting.DARK_PURPLE + Helpers.formatMessage("message.text.mode") + ": "
+                                    + Helpers.formatMessage("message.ultDDrill.mode.bigHoles"));
                     this.efficiencyOnProperMaterial = this.bigHolePower;
                     break;
                 case 2:
 
-                            player.addChatComponentMessage(new ChatComponentTranslation("message.text.mode").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.GREEN)).appendSibling(new ChatComponentText(": ").appendSibling(new ChatComponentTranslation("message.ultDDrill.mode.treemode"))));
+                    CommonProxy.sendPlayerMessage(player,
+                            EnumChatFormatting.GREEN + Helpers.formatMessage("message.text.mode") + ": "
+                                    + Helpers.formatMessage("message.ultDDrill.mode.treemode"));
                     this.efficiencyOnProperMaterial = this.bigHolePower;
                     break;
             }

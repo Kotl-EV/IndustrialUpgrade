@@ -23,7 +23,7 @@ apply plugin: 'forge'
 
 version = "2.5.21"
 group= "com.denfop"
-archivesBaseName = "IndustrialUpgrade_server"
+archivesBaseName = "IndustrialUpgrade_client"
 apply plugin: 'java'
 compileJava {
     sourceCompatibility = '1.8'

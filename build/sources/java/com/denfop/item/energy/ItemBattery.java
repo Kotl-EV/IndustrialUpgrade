@@ -233,7 +233,9 @@ public class ItemBattery extends Item implements IElectricItem, IItemHudInfo {
                 mode = 0;
 
             ModUtils.NBTSetInteger(itemStack, "mode", mode);
-                    entityplayer.addChatComponentMessage(new ChatComponentTranslation("message.text.mode").appendSibling(new ChatComponentText(": ").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.GREEN)).appendSibling(new ChatComponentTranslation("message.battery.mode." + mode))));
+            CommonProxy.sendPlayerMessage(entityplayer,
+                    EnumChatFormatting.GREEN + Helpers.formatMessage("message.text.mode") + ": "
+                            + Helpers.formatMessage("message.battery.mode." + mode));
         }
 
         return itemStack;

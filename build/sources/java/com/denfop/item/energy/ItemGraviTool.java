@@ -191,15 +191,16 @@ public class ItemGraviTool extends ItemTool implements IElectricItem, IToolWrenc
             saveToolMode(stack, mode);
             setToolName(stack);
             if (mode == 1)
-                player.addChatComponentMessage(new ChatComponentTranslation("iu.graviTool.snap.Hoe").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.GOLD)).appendSibling(new ChatComponentText(" ").appendSibling(new ChatComponentTranslation("iu.message.text.activated"))));
+                CommonProxy.sendPlayerMessage(player, EnumChatFormatting.GOLD + Helpers.formatMessage("iu.graviTool.snap.Hoe") + " " + EnumChatFormatting.GREEN + Helpers.formatMessage("iu.message.text.activated"));
             else if (mode == 2)
-                player.addChatComponentMessage(new ChatComponentTranslation("iu.graviTool.snap.TreeTap").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.LIGHT_PURPLE)).appendSibling(new ChatComponentText(" ").appendSibling(new ChatComponentTranslation("iu.message.text.activated"))));
+                CommonProxy.sendPlayerMessage(player, EnumChatFormatting.LIGHT_PURPLE + Helpers.formatMessage("iu.graviTool.snap.TreeTap") + " " + EnumChatFormatting.GREEN + Helpers.formatMessage("iu.message.text.activated"));
             else if (mode == 3)
-                player.addChatComponentMessage(new ChatComponentTranslation("iu.graviTool.snap.Wrench").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.AQUA)).appendSibling(new ChatComponentText(" ").appendSibling(new ChatComponentTranslation("iu.message.text.activated"))));
+                CommonProxy.sendPlayerMessage(player, EnumChatFormatting.AQUA + Helpers.formatMessage("iu.graviTool.snap.Wrench") + " " + EnumChatFormatting.GREEN + Helpers.formatMessage("iu.message.text.activated"));
             else if (mode == 4)
-                player.addChatComponentMessage(new ChatComponentTranslation("iu.graviTool.snap.Screwdriver").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.YELLOW)).appendSibling(new ChatComponentText(" ").appendSibling(new ChatComponentTranslation("iu.message.text.activated"))));
+                CommonProxy.sendPlayerMessage(player, EnumChatFormatting.YELLOW + Helpers.formatMessage("iu.graviTool.snap.Screwdriver") + " " + EnumChatFormatting.GREEN + Helpers.formatMessage("iu.message.text.activated"));
+
             else if (mode == 5)
-                player.addChatComponentMessage(new ChatComponentTranslation("iu.graviTool.snap.Purifier").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.DARK_AQUA)).appendSibling(new ChatComponentText(" ").appendSibling(new ChatComponentTranslation("iu.message.text.activated"))));
+                CommonProxy.sendPlayerMessage(player, EnumChatFormatting.DARK_AQUA + Helpers.formatMessage("iu.graviTool.snap.Purifier") + " " + EnumChatFormatting.GREEN + Helpers.formatMessage("iu.message.text.activated"));
         }
 
 
@@ -249,7 +250,7 @@ public class ItemGraviTool extends ItemTool implements IElectricItem, IToolWrenc
         if (!player.canPlayerEdit(x, y, z, side, stack))
             return false;
         else if (!this.canDischarge(stack, energyPerHoe)) {
-            player.addChatComponentMessage(new ChatComponentTranslation("message.text.noenergy"));
+            CommonProxy.sendPlayerMessage(player, Helpers.formatMessage("message.text.noenergy"));
             return false;
         } else {
             UseHoeEvent event = new UseHoeEvent(player, stack, world, x, y, z);

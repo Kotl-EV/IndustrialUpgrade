@@ -12,6 +12,7 @@
       <entry name="!?*.java" />
     </wildcardResourcePatterns>
     <bytecodeTargetLevel target="1.6">
+      <module name="IndustrialUpgrade.main" target="1.8" />
       <module name="industrialupgrade_server.main" target="1.8" />
     </bytecodeTargetLevel>
   </component>
@@ -64,6 +65,10 @@
   </component>
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/IndustrialUpgrade.iml" filepath="$PROJECT_DIR$/IndustrialUpgrade.iml" />
+      <module fileurl="file://$PROJECT_DIR$/IndustrialUpgrade.api.iml" filepath="$PROJECT_DIR$/IndustrialUpgrade.api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/IndustrialUpgrade.main.iml" filepath="$PROJECT_DIR$/IndustrialUpgrade.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/IndustrialUpgrade.test.iml" filepath="$PROJECT_DIR$/IndustrialUpgrade.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/industrialupgrade_server.iml" filepath="$PROJECT_DIR$/industrialupgrade_server.iml" />
       <module fileurl="file://$PROJECT_DIR$/industrialupgrade_server.api.iml" filepath="$PROJECT_DIR$/industrialupgrade_server.api.iml" />
       <module fileurl="file://$PROJECT_DIR$/industrialupgrade_server.main.iml" filepath="$PROJECT_DIR$/industrialupgrade_server.main.iml" />

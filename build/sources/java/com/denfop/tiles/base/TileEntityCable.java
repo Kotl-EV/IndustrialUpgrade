@@ -39,16 +39,13 @@ public class TileEntityCable extends TileEntityBlock
 
     public byte foamColor;
 
-    //TODO LuxinfineTeam code REMOVE
-    //@ClientModifiable
+    @ClientModifiable
     public Block[] retextureRef;
 
-    //TODO LuxinfineTeam code REMOVE
-    //@ClientModifiable
+    @ClientModifiable
     public int[] retextureRefMeta;
 
-    //TODO LuxinfineTeam code REMOVE
-    //@ClientModifiable
+    @ClientModifiable
     public int[] retextureRefSide;
 
     public byte connectivity;
@@ -262,19 +259,17 @@ public class TileEntityCable extends TileEntityBlock
     }
 
     public double getConductionLoss() {
+
         return 0.025D;
     }
 
     public double getInsulationEnergyAbsorption() {
-        //TODO LuxinfineTeam code REPLACE
-        //return 9001.0D;
-        return getMaxCapacity(this.cableType);
+
+        return 9001.0D;
     }
 
     public double getInsulationBreakdownEnergy() {
-        //TODO LuxinfineTeam code REPLACE
-        //return 9001.0D;
-        return getMaxCapacity(this.cableType);
+        return 9001.0D;
     }
 
     public double getConductorBreakdownEnergy() {
