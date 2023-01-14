@@ -152,7 +152,9 @@ public class ItemMagnet extends Item implements IElectricItem {
                 mode = 0;
 
             ModUtils.NBTSetInteger(itemStack, "mode", mode);
-                    entityplayer.addChatComponentMessage(new ChatComponentTranslation("message.text.mode").appendSibling(new ChatComponentText(": ").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.GREEN)).appendSibling(new ChatComponentTranslation("message.magnet.mode." + mode))));
+            CommonProxy.sendPlayerMessage(entityplayer,
+                    EnumChatFormatting.GREEN + Helpers.formatMessage("message.text.mode") + ": "
+                            + Helpers.formatMessage("message.magnet.mode." + mode));
         }
 
         return itemStack;
