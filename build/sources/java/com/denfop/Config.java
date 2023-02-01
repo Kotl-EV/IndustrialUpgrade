@@ -426,6 +426,7 @@ public class Config {
     public static int impheatswitch_switchreactor;
     public static boolean advloaded = false;
     public static boolean iu_old_loaded = false;
+    public static boolean PollutionSolarPanels;
 
     public static void config(final FMLPreInitializationEvent event) {
         configFile = event.getSuggestedConfigurationFile();
