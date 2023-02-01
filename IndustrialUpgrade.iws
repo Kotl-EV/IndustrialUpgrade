@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="03521d03-8cdc-483b-87a4-9c3ff624cb0b" name="Changes" comment="">
+    <list default="true" id="c1e8274b-ef17-4908-8aec-920c79be5ab2" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IndustrialUpgrade.iml" beforeDir="false" afterPath="$PROJECT_DIR$/IndustrialUpgrade.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IndustrialUpgrade.ipr" beforeDir="false" afterPath="$PROJECT_DIR$/IndustrialUpgrade.ipr" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/IndustrialUpgrade.iws" beforeDir="false" afterPath="$PROJECT_DIR$/IndustrialUpgrade.iws" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/denfop/tiles/base/TileEntitySolarPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/denfop/tiles/base/TileEntitySolarPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +66,7 @@
     <option name="LAST_EDITED_MODULE_NAME" />
     <option name="LAST_EDITED_TAB_NAME" />
   </component>
-  <component name="ProjectId" id="2KKKwijo44XVYn8Z9Gz6P1rt5Ut" />
+  <component name="ProjectId" id="2L8ocLoZleSxtjxpYCmY5UANlM0" />
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
       <profile-state />
@@ -74,12 +80,12 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Application.Minecraft Client">
     <configuration default="true" factoryName="Applet" type="Applet">
       <module name="" />
@@ -171,11 +177,11 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="03521d03-8cdc-483b-87a4-9c3ff624cb0b" name="Changes" comment="" />
-      <created>1673718078424</created>
+      <changelist id="c1e8274b-ef17-4908-8aec-920c79be5ab2" name="Changes" comment="" />
+      <created>1675262151867</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1673718078424</updated>
+      <updated>1675262151867</updated>
     </task>
     <servers />
   </component>
