@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="03521d03-8cdc-483b-87a4-9c3ff624cb0b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/IndustrialUpgrade.ipr" beforeDir="false" afterPath="$PROJECT_DIR$/IndustrialUpgrade.ipr" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/IndustrialUpgrade.iws" beforeDir="false" afterPath="$PROJECT_DIR$/IndustrialUpgrade.iws" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/denfop/tiles/base/TileEntitySolarPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/denfop/tiles/base/TileEntitySolarPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
