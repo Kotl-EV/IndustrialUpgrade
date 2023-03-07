@@ -26,6 +26,15 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
+          <root url="jar://$MODULE_DIR$/build/dirtyArtifacts/forgeBin-1.7.10-10.13.4.1614-1.7.10.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES/>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
           <root url="jar://C:/Users/Kotl/.gradle/caches/modules-2/files-2.1/net.minecraft/launchwrapper/1.12/111e7bea9c968cdb3d06ef4632bf7ff0824d0f36/launchwrapper-1.12.jar!/"/>
         </CLASSES>
         <JAVADOC/>
@@ -991,15 +1000,6 @@
       <library>
         <CLASSES>
           <root url="jar://$MODULE_DIR$/libs/wirelessindustry-0.7.9.5.1-deobf.jar!/"/>
-        </CLASSES>
-        <JAVADOC/>
-        <SOURCES/>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="file://$MODULE_DIR$/unresolved dependency -  forgeBin 1.7.10-10.13.4.1614-1.7.10"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES/>

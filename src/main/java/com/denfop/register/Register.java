@@ -422,6 +422,9 @@ public class Register {
         IUItem.advnanobox = new IUItemBase("QuantumItems7");
         IUItem.neutronium = new IUItemBase("neutronium");
         IUItem.plast = new IUItemBase("plast");
+        // todo Kotl
+        //IUItem.module_stack = new IUItemBase("module_stack").setCreativeTab(IUCore.tabssp1);
+        // todo Kotl
         IUItem.module_quickly = new IUItemBase("module_quickly").setCreativeTab(IUCore.tabssp1);
         IUItem.plastic_plate = new IUItemBase("plastic_plate");
         IUItem.neutroniumingot = new IUItemBase("neutroniumingot");
