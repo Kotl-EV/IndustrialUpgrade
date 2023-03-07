@@ -934,7 +934,7 @@ public class BasicRecipe {
         );
         Recipes.advRecipes.addRecipe(new ItemStack(IUItem.combinersolidmatter), "ABC", "DJE", "FGH", 'J', new ItemStack(IUItem.core, 1, 8), 'H', new ItemStack(IUItem.solidmatter, 1, 7), 'G', new ItemStack(IUItem.solidmatter, 1, 6), 'F', new ItemStack(IUItem.solidmatter, 1, 5), 'E', new ItemStack(IUItem.solidmatter, 1, 4), 'D', new ItemStack(IUItem.solidmatter, 1, 3), 'C', new ItemStack(IUItem.solidmatter, 1, 2), 'B', new ItemStack(IUItem.solidmatter, 1, 1), 'A', new ItemStack(IUItem.solidmatter, 1, 0)
         );
-        Recipes.advRecipes.addRecipe(new ItemStack(IUItem.basemachine1), "DB ", "BAB", " BD", 'D', new ItemStack(IUItem.module_stack), 'A', new ItemStack(IUItem.machines, 1, 2), 'B', new ItemStack(IUItem.core, 1, 9)
+        Recipes.advRecipes.addRecipe(new ItemStack(IUItem.basemachine1), "DB ", "BAB", " BD", 'D', new ItemStack(IUItem.cirsuitQuantum), 'A', new ItemStack(IUItem.machines, 1, 2), 'B', new ItemStack(IUItem.core, 1, 9)
         );
         Recipes.advRecipes.addRecipe(new ItemStack(IUItem.basemachine1, 1, 1), "BBB", "CAC", "DED", 'D', OreDictionary.getOres("plateAlumel"), 'E', Ic2Items.electronicCircuit, 'A', Ic2Items.advancedMachine, 'B', new ItemStack(Items.fish), 'C', new ItemStack(Items.fishing_rod, 1, OreDictionary.WILDCARD_VALUE)
         );

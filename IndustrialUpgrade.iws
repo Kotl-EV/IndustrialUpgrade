@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="833b5f53-400f-41db-9dd8-5f8a5d786eeb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/IndustrialUpgrade.iws" beforeDir="false" afterPath="$PROJECT_DIR$/IndustrialUpgrade.iws" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/denfop/recipes/BasicRecipe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/denfop/recipes/BasicRecipe.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/denfop/register/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/denfop/register/Register.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
