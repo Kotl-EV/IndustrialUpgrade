@@ -609,7 +609,7 @@ public class BasicRecipe {
                 case 0:
                     int m = i / 4;
                     Recipes.advRecipes.addRecipe(new ItemStack(IUItem.machines_base2, 1, i),
-                            "ABA", "CDC", "EEE", 'E', OreDictionary.getOres("ingotLead"), 'D', Ic2Items.machine, 'C', Ic2Items.electronicCircuit, 'A', stacks1[m], 'B', stacks2[m]);
+                            "ABA", "CDC", "EEE", 'E', OreDictionary.getOres("ingotLead"), 'D', Ic2Items.machine, 'C', Ic2Items.electronicCircuit, 'A',new ItemStack(stacks1[m].getItem(),1,OreDictionary.WILDCARD_VALUE), 'B', new ItemStack(stacks2[m].getItem(),1,OreDictionary.WILDCARD_VALUE));
 
                     break;
                 case 1:
