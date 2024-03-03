@@ -23,18 +23,16 @@ public class TileEntityImpReactorChamberElectric extends TileEntity implements I
     private short ticker = 0;
     private boolean loaded = false;
 
-    public TileEntityImpReactorChamberElectric() {
-    }
-
     public void validate() {
         super.validate();
-        IC2.tickHandler.addSingleTickCallback(this.worldObj, world -> {
-            if (!TileEntityImpReactorChamberElectric.this.isInvalid() && world.blockExists(TileEntityImpReactorChamberElectric.this.xCoord, TileEntityImpReactorChamberElectric.this.yCoord, TileEntityImpReactorChamberElectric.this.zCoord)) {
-                TileEntityImpReactorChamberElectric.this.onLoaded();
-                if (TileEntityImpReactorChamberElectric.this.enableUpdateEntity()) {
-                    world.loadedTileEntityList.add(TileEntityImpReactorChamberElectric.this);
+        IC2.tickHandler.addSingleTickCallback(this.worldObj, (world) -> {
+            if (!this.isInvalid() && world.blockExists(this.xCoord, this.yCoord, this.zCoord)) {
+                this.onLoaded();
+                if (this.enableUpdateEntity()) {
+                    world.loadedTileEntityList.add(this);
                 }
             }
+
         });
     }
 
@@ -150,6 +148,7 @@ public class TileEntityImpReactorChamberElectric extends TileEntity implements I
         if (reactor != null) {
             reactor.setInventorySlotContents(i, itemstack);
         }
+
     }
 
     public String getInventoryName() {
@@ -176,6 +175,7 @@ public class TileEntityImpReactorChamberElectric extends TileEntity implements I
         if (reactor != null) {
             reactor.openInventory();
         }
+
     }
 
     public void closeInventory() {
@@ -183,6 +183,7 @@ public class TileEntityImpReactorChamberElectric extends TileEntity implements I
         if (reactor != null) {
             reactor.closeInventory();
         }
+
     }
 
     public ItemStack getStackInSlotOnClosing(int var1) {
@@ -197,12 +198,14 @@ public class TileEntityImpReactorChamberElectric extends TileEntity implements I
 
     public TileEntityImpNuclearReactor getReactor() {
         Direction[] var1 = Direction.directions;
+        Direction[] var2 = var1;
+        int var3 = var1.length;
 
-
-        for (Direction value : var1) {
+        for(int var4 = 0; var4 < var3; ++var4) {
+            Direction value = var2[var4];
             TileEntity te = value.applyToTileEntity(this);
             if (te instanceof TileEntityImpNuclearReactor) {
-                return (TileEntityImpNuclearReactor) te;
+                return (TileEntityImpNuclearReactor)te;
             }
         }
 
@@ -213,7 +216,6 @@ public class TileEntityImpReactorChamberElectric extends TileEntity implements I
 
         return null;
     }
-
 
     public ContainerBase<?> getGuiContainer(EntityPlayer entityPlayer) {
         TileEntityImpNuclearReactor reactor = this.getReactor();
@@ -231,6 +233,7 @@ public class TileEntityImpReactorChamberElectric extends TileEntity implements I
         if (reactor != null) {
             reactor.onGuiClosed(entityPlayer);
         }
+
     }
 
     public void setRedstoneSignal(boolean redstone) {
@@ -238,5 +241,6 @@ public class TileEntityImpReactorChamberElectric extends TileEntity implements I
         if (reactor != null) {
             reactor.setRedstoneSignal(redstone);
         }
+
     }
 }

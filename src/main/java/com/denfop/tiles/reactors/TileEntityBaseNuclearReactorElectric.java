@@ -15,12 +15,19 @@ import ic2.api.energy.tile.IEnergySource;
 import ic2.api.energy.tile.IMetaDelegate;
 import ic2.api.reactor.IReactor;
 import ic2.api.reactor.IReactorComponent;
-import ic2.core.*;
+import ic2.core.ContainerBase;
+import ic2.core.IC2;
+import ic2.core.IC2DamageSource;
+import ic2.core.IHasGui;
+import ic2.core.Ic2Items;
 import ic2.core.audio.AudioSource;
 import ic2.core.audio.PositionSpec;
 import ic2.core.block.TileEntityInventory;
 import ic2.core.init.MainConfig;
+import ic2.core.network.NetworkManager;
 import ic2.core.util.ConfigUtil;
+import java.util.Iterator;
+import java.util.List;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.gui.GuiScreen;
@@ -37,8 +44,6 @@ import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.ForgeDirection;
-
-import java.util.List;
 
 public abstract class TileEntityBaseNuclearReactorElectric extends TileEntityInventory implements IHasGui, IReactor, IEnergySource, IMetaDelegate {
     public final int sizeX;
@@ -70,7 +75,6 @@ public abstract class TileEntityBaseNuclearReactorElectric extends TileEntityInv
     }
 
     abstract void setblock();
-
 
     public void onLoaded() {
         super.onLoaded();
@@ -107,16 +111,15 @@ public abstract class TileEntityBaseNuclearReactorElectric extends TileEntityInv
     public void readFromNBT(NBTTagCompound nbttagcompound) {
         super.readFromNBT(nbttagcompound);
         this.heat = nbttagcompound.getInteger("heat");
-        this.output = (float) nbttagcompound.getDouble("output");
-        getblock = nbttagcompound.getBoolean("getblock");
+        this.output = (float)nbttagcompound.getDouble("output");
+        this.getblock = nbttagcompound.getBoolean("getblock");
     }
 
     public void writeToNBT(NBTTagCompound nbttagcompound) {
         super.writeToNBT(nbttagcompound);
         nbttagcompound.setInteger("heat", this.heat);
-        nbttagcompound.setDouble("output", this.getReactorEnergyOutput());
+        nbttagcompound.setDouble("output", (double)this.getReactorEnergyOutput());
         nbttagcompound.setBoolean("getblock", this.getblock);
-
     }
 
     public void setRedstoneSignal(boolean redstone) {
@@ -131,7 +134,7 @@ public abstract class TileEntityBaseNuclearReactorElectric extends TileEntityInv
     }
 
     public double getOfferedEnergy() {
-        return this.getReactorEnergyOutput() * 5.0F * ConfigUtil.getFloat(MainConfig.get(), "balance/energy/generator/nuclear");
+        return (double)(this.getReactorEnergyOutput() * 5.0F * ConfigUtil.getFloat(MainConfig.get(), "balance/energy/generator/nuclear"));
     }
 
     public int getSourceTier() {
@@ -141,7 +144,6 @@ public abstract class TileEntityBaseNuclearReactorElectric extends TileEntityInv
     public double getReactorEUEnergyOutput() {
         return this.getOfferedEnergy();
     }
-
 
     public void refreshChambers() {
         if (this.addedToEnergyNet) {
@@ -157,51 +159,48 @@ public abstract class TileEntityBaseNuclearReactorElectric extends TileEntityInv
 
     public void updateEntityServer() {
         super.updateEntityServer();
-
-        if (this.getActive())
-            if (this.worldObj.provider.getWorldTime() % 200 == 0) {
-                for (int x = this.xCoord - 1; x <= this.xCoord + 1; x++) {
-                    for (int z = this.zCoord - 1; z <= this.zCoord + 1; z++) {
-                        for (int y = this.yCoord - 1; y <= this.yCoord + 1; y++) {
-                            if (getWorld().getTileEntity(x, y, z) instanceof TileEntityRadiationPurifier) {
-                                TileEntityRadiationPurifier tile = (TileEntityRadiationPurifier) getWorld().getTileEntity(x, y, z);
-                                if (tile.getActive()) {
-                                    getblock = true;
-                                    return;
-                                } else {
-                                    getblock = false;
-                                }
-                            } else {
-                                getblock = false;
-
+        if (this.getActive() && this.worldObj.provider.getWorldTime() % 200L == 0L) {
+            for(int x = this.xCoord - 1; x <= this.xCoord + 1; ++x) {
+                for(int z = this.zCoord - 1; z <= this.zCoord + 1; ++z) {
+                    for(int y = this.yCoord - 1; y <= this.yCoord + 1; ++y) {
+                        if (this.getWorld().getTileEntity(x, y, z) instanceof TileEntityRadiationPurifier) {
+                            TileEntityRadiationPurifier tile = (TileEntityRadiationPurifier)this.getWorld().getTileEntity(x, y, z);
+                            if (tile.getActive()) {
+                                this.getblock = true;
+                                return;
                             }
+
+                            this.getblock = false;
+                        } else {
+                            this.getblock = false;
                         }
                     }
                 }
             }
+        }
 
-        if (this.getActive())
-            if (!getblock) {
-                int radius = 5;
-                AxisAlignedBB axisalignedbb = AxisAlignedBB.getBoundingBox(this.xCoord - radius, this.yCoord - radius, this.zCoord - radius, this.xCoord + radius, this.yCoord + radius, this.zCoord + radius);
-                List<EntityPlayer> list = getWorld().getEntitiesWithinAABB(EntityPlayer.class, axisalignedbb);
-                for (EntityPlayer player : list) {
-                    if (!ItemArmorAdvHazmat.hasCompleteHazmat(player))
-                        player.attackEntityFrom(IUDamageSource.radiation, 1.0F);
+        if (this.getActive() && !this.getblock) {
+            int radius = 5;
+            AxisAlignedBB axisalignedbb = AxisAlignedBB.getBoundingBox((double)(this.xCoord - radius), (double)(this.yCoord - radius), (double)(this.zCoord - radius), (double)(this.xCoord + radius), (double)(this.yCoord + radius), (double)(this.zCoord + radius));
+            List<EntityPlayer> list = this.getWorld().getEntitiesWithinAABB(EntityPlayer.class, axisalignedbb);
+            Iterator var9 = list.iterator();
+
+            while(var9.hasNext()) {
+                EntityPlayer player = (EntityPlayer)var9.next();
+                if (!ItemArmorAdvHazmat.hasCompleteHazmat(player)) {
+                    player.attackEntityFrom(IUDamageSource.radiation, 1.0F);
                 }
             }
+        }
+
         if (this.updateTicker++ % this.getTickRate() == 0) {
             if (!this.worldObj.doChunksNearChunkExist(this.xCoord, this.yCoord, this.zCoord, 2)) {
                 this.output = 0.0F;
             } else {
-
-
                 this.output = 0.0F;
                 this.maxHeat = 10000;
                 this.hem = 1.0F;
                 this.processChambers();
-
-
                 if (this.calculateHeatEffects()) {
                     return;
                 }
@@ -210,8 +209,9 @@ public abstract class TileEntityBaseNuclearReactorElectric extends TileEntityInv
                 this.markDirty();
             }
 
-            IC2.network.get().updateTileEntityField(this, "output");
+            ((NetworkManager)IC2.network.get()).updateTileEntityField(this, "output");
         }
+
     }
 
     public boolean isUsefulItem(ItemStack stack) {
@@ -227,13 +227,14 @@ public abstract class TileEntityBaseNuclearReactorElectric extends TileEntityInv
 
     public boolean calculateHeatEffects() {
         if (this.heat >= 4000 && IC2.platform.isSimulating() && !(ConfigUtil.getFloat(MainConfig.get(), "protection/reactorExplosionPowerLimit") <= 0.0F)) {
-            float power = (float) this.heat / (float) this.maxHeat;
+            float power = (float)this.heat / (float)this.maxHeat;
             if (power >= 1.0F) {
                 if (Config.explode) {
                     this.explode();
                 } else {
-                    setblock();
+                    this.setblock();
                 }
+
                 return true;
             } else {
                 int[] coord;
@@ -257,11 +258,13 @@ public abstract class TileEntityBaseNuclearReactorElectric extends TileEntityInv
                 }
 
                 if (power >= 0.7F) {
-                    List list1 = this.worldObj.getEntitiesWithinAABB(EntityLivingBase.class, AxisAlignedBB.getBoundingBox(this.xCoord - 3, this.yCoord - 3, this.zCoord - 3, this.xCoord + 4, this.yCoord + 4, this.zCoord + 4));
+                    List list1 = this.worldObj.getEntitiesWithinAABB(EntityLivingBase.class, AxisAlignedBB.getBoundingBox((double)(this.xCoord - 3), (double)(this.yCoord - 3), (double)(this.zCoord - 3), (double)(this.xCoord + 4), (double)(this.yCoord + 4), (double)(this.zCoord + 4)));
+                    Iterator var6 = list1.iterator();
 
-                    for (Object o : list1) {
-                        Entity ent = (Entity) o;
-                        ent.attackEntityFrom(IC2DamageSource.radiation, (float) ((int) ((float) this.worldObj.rand.nextInt(4) * this.hem)));
+                    while(var6.hasNext()) {
+                        Object o = var6.next();
+                        Entity ent = (Entity)o;
+                        ent.attackEntityFrom(IC2DamageSource.radiation, (float)((int)((float)this.worldObj.rand.nextInt(4) * this.hem)));
                     }
                 }
 
@@ -304,13 +307,13 @@ public abstract class TileEntityBaseNuclearReactorElectric extends TileEntityInv
 
     public void processChambers() {
         int size = this.getReactorSize();
-//TODO y <7 this height of the reactor is 7 maximum, for the rest change 7 to your value
-        for (int pass = 0; pass < 2; ++pass) {
-            for (int y = 0; y < sizeY; ++y) {
-                for (int x = 0; x < size; ++x) {
+
+        for(int pass = 0; pass < 2; ++pass) {
+            for(int y = 0; y < this.sizeY; ++y) {
+                for(int x = 0; x < size; ++x) {
                     ItemStack stack = this.reactorSlot.get(x, y);
                     if (stack != null && stack.getItem() instanceof IReactorComponent) {
-                        IReactorComponent comp = (IReactorComponent) stack.getItem();
+                        IReactorComponent comp = (IReactorComponent)stack.getItem();
                         comp.processChamber(this, stack, x, y, pass == 0);
                     }
                 }
@@ -328,7 +331,6 @@ public abstract class TileEntityBaseNuclearReactorElectric extends TileEntityInv
     }
 
     public abstract short getReactorSize();
-
 
     public int getTickRate() {
         return 20;
@@ -408,9 +410,8 @@ public abstract class TileEntityBaseNuclearReactorElectric extends TileEntityInv
     }
 
     public float getWrenchDropRate() {
-        return 1;
+        return 1.0F;
     }
-
 
     public ChunkCoordinates getPosition() {
         return new ChunkCoordinates(this.xCoord, this.yCoord, this.zCoord);
@@ -437,18 +438,16 @@ public abstract class TileEntityBaseNuclearReactorElectric extends TileEntityInv
         return x >= 0 && x < this.getReactorSize() && y >= 0 && y < this.sizeY ? this.reactorSlot.get(x, y) : null;
     }
 
-
     public void setItemAt(int x, int y, ItemStack item) {
-        if (x >= 0 && x < this.getReactorSize() && y >= 0 && y <  this.sizeY) {
+        if (x >= 0 && x < this.getReactorSize() && y >= 0 && y < this.sizeY) {
             this.reactorSlot.put(x, y, item);
         }
+
     }
 
     public abstract void explode();
 
-
     public void addEmitHeat(int heat) {
-
     }
 
     public int getMaxHeat() {
@@ -468,18 +467,16 @@ public abstract class TileEntityBaseNuclearReactorElectric extends TileEntityInv
     }
 
     public float getReactorEnergyOutput() {
-        return (float) (this.output * this.coef);
+        return (float)((double)this.output * this.coef);
     }
 
     public float addOutput(float energy) {
         return this.output += energy;
     }
 
-
     public boolean isFluidCooled() {
         return false;
     }
-
 
     public int getInventoryStackLimit() {
         return 1;
